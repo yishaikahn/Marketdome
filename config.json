@@ -3,4 +3,17 @@
   "alerts_enabled": true,
   "stocks": ["AAPL", "TSLA"],
   "crypto": ["bitcoin", "ethereum"]
-}
+}import json
+import os
+
+CONFIG_FILE = "config.json"
+
+def load_config():
+    if not os.path.exists(CONFIG_FILE):
+        return {}
+    with open(CONFIG_FILE, "r") as f:
+        return json.load(f)
+
+def save_config(data):
+    with open(CONFIG_FILE, "w") as f:
+        json.dump(data, f, indent=4)
