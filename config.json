@@ -1,0 +1,6 @@
+{
+  "interval_minutes": 15,
+  "alerts_enabled": true,
+  "stocks": ["AAPL", "TSLA"],
+  "crypto": ["bitcoin", "ethereum"]
+}
