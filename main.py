@@ -50,3 +50,17 @@ def run_bot():
 if __name__ == "__main__":
     run_bot()
     from config_utils import load_config, save_config
+    
+    from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram import Update
+
+TOKEN = "הכנס_כאן_את_הטוקן_שלך"  # שים כאן את הטוקן
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("הבוט חי! ברוך הבא ל־Marketdome 🔥")
+
+if __name__ == '__main__':
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    print("Bot is running...")
+    app.run_polling()
