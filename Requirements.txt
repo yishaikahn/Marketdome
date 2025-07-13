@@ -1,3 +1,23 @@
 python-telegram-bot==20.3
 aiohttp
 requests
+from telegram.ext import ApplicationBuilder, CommandHandler, ContextTypes
+from telegram import Update
+import os
+
+TOKEN = os.getenv("TELEGRAM_BOT_TOKEN") or "הכנס_כאן_את_הטוקן_שלך"
+
+async def start(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text("הבוט חי! ברוך הבא ל־Marketdome 🔥")
+
+if __name__ == '__main__':
+    app = ApplicationBuilder().token(TOKEN).build()
+    app.add_handler(CommandHandler("start", start))
+    print("Bot is running...")
+    app.run_polling()
+python-telegram-bot==20.7
+Flask==3.0.3
+requests
+schedule
+yfinance
+python-dotenv
